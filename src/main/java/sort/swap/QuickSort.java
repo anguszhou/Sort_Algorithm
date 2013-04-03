@@ -8,7 +8,10 @@ import sort.Sort;
 public class QuickSort<T extends Comparable<T>> extends Sort<T> {
 
 	/**
-	 * @param args
+	 * 快速排序：通过一趟排序，将待排序记录分割成独立的两个部分，其中一部分记录的关键字均比另一部分记录的关键字小，
+	 * 则可分别对这两部分记录继续进行排序，以达到整个序列有序。具体做法是：使用两个指针low,high, 初值分别设置为序列的头，
+	 * 和序列的尾，设置pivotkey为第一个记录，首先从high开始向前搜索第一个小于pivotkey的记录和pivotkey所在位置进行交换，
+	 * 然后从low开始向后搜索第一个大于pivotkey的记录和此时pivotkey所在位置进行交换，重复知道low=high了为止
 	 */
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
