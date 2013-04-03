@@ -1,10 +1,11 @@
 package sort.swap;
 
+import java.util.Comparator;
 import java.util.Random;
 
 import sort.Sort;
 
-public class QuickSort<T> extends Sort<T> {
+public class QuickSort<T extends Comparable<T>> extends Sort<T> {
 
 	/**
 	 * @param args
@@ -35,10 +36,17 @@ public class QuickSort<T> extends Sort<T> {
 		int index = r.nextInt(end-start+1)+start;
 		swap(data , index , end);
 		
+		int small = start;
 		for(int i = start ; i <= end ; i++){
-			
+			if(data[i].compareTo(data[end]) < 0){
+				if( small != i){
+					swap(data, small , i);
+				}
+				small++;
+			}
 		}
-		
-		return 0;
+		swap(data , small , end);		
+		return small;
 	}
+	
 }
