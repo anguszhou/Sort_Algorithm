@@ -14,7 +14,6 @@ public class MoreThanHalfNum{
 	
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-
 	}
 	
 	public int moreThanHalfNum(int data[] , int length){
@@ -28,12 +27,44 @@ public class MoreThanHalfNum{
 		QuickSort<Integer> s = new QuickSort<Integer>();
 		int index = s.partition(array, length, start, end);
 		
-		return 0;
+		while(index != middel){
+			if(index > middel){
+				end = index -1 ;
+				index = s.partition(array, length, start, end);
+			}else{
+				start = index +1 ;
+				index = s.partition(array, length, start, end);
+			}
+		}
+		
+		int result = array[index];
+		if(!checkMoreThanHalf(array, length , result))
+			return INVALID_ARRAY;
+		return result;
+	}
+
+	private boolean checkMoreThanHalf(Integer[] array, int length, int result) {
+		// TODO Auto-generated method stub
+		int times = 0;
+		for (int i = 0; i < array.length; i++) {
+			if(array[i] == result){
+				times++;
+			}
+		}
+		
+		if(times*2 <= length)
+			return false;
+		else
+			return true;
 	}
 
 	private Integer[] intToInteger(int[] data) {
 		// TODO Auto-generated method stub
-		return null;
+		Integer[] array = new Integer[data.length];
+		for (int i = 0; i < array.length; i++) {
+			array[i] = data[i];
+		}
+ 		return array;
 	}
 
 	private boolean checkInvalidArray(int[] data, int length) {
