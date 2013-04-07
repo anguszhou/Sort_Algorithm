@@ -29,7 +29,7 @@ public class QuickSort<T extends Comparable<T>> extends Sort<T> {
 			quickSort(data, length, index+1, end);
 		}
 	}
-	private int partition(T[] data, int length, int start, int end) {
+	public int partition(T[] data, int length, int start, int end) {
 		// TODO Auto-generated method stub
 		if(data == null || length <=0 || start < 0 || end >= length){
 			throw new IndexOutOfBoundsException("argument error!");
