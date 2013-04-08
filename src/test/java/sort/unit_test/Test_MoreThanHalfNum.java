@@ -71,15 +71,30 @@ public class Test_MoreThanHalfNum {
 	}
 
 	@Test
-	public void testQuickSort() {
+	public void test_MoreThanHalfNum() {
 		int[] data = createRandomArray(num_scope, size_scope);
 		MoreThanHalfNum mm = new MoreThanHalfNum();
 		int result = mm.moreThanHalfNum(data , data.length);
+		System.out.println("test MoreThanHalfNum :");
 		for (int i = 0; i < data.length; i++) {
 			System.out.print(data[i]+" , ");
 		}
 		System.out.println();
-		System.out.println(result);
+		System.out.println("result is : "+result);
+		assertEquals(result, 1);
+	}
+	
+	@Test
+	public void test_MoreThanHalfNum2() {
+		int[] data = createRandomArray(num_scope, size_scope);
+		MoreThanHalfNum mm = new MoreThanHalfNum();
+		int result = mm.moreThanHalfNum2(data , data.length);
+		System.out.println("test MoreThanHalfNum2 :");
+		for (int i = 0; i < data.length; i++) {
+			System.out.print(data[i]+" , ");
+		}
+		System.out.println();
+		System.out.println("result is : "+result);
 		assertEquals(result, 1);
 	}
 

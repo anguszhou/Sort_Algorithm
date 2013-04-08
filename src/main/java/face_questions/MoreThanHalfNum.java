@@ -6,7 +6,7 @@ import sort.swap.QuickSort;
 public class MoreThanHalfNum{
 
 	/**
-	 * Find the number whose frequency of occurrence is bigger
+	 * Find the number whose frequency of occurrence is more
 	 * than half size of array  in array  
 	 * 
 	 */
@@ -15,7 +15,10 @@ public class MoreThanHalfNum{
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 	}
-	
+	/**
+	 * use partition to find n-th 
+	 * 
+	 */
 	public int moreThanHalfNum(int data[] , int length){
 		if(checkInvalidArray(data, length)){
 			return INVALID_ARRAY;
@@ -74,4 +77,29 @@ public class MoreThanHalfNum{
 		return false;
 	}
 
+	/**
+	 * use a number and timer to record the value and times
+	 * frequency of occurrence
+	 */
+	public int moreThanHalfNum2(int[] data , int length){
+		if(checkInvalidArray(data, length)){
+			return INVALID_ARRAY;
+		}
+		int value =data[0], times = 1;
+		for (int i = 1; i < data.length; i++) {
+			if(times == 0 ){
+				value = data[i];
+				times = 1;
+			}
+			if(data[i] == value){
+				times++;
+			}else{
+				times--;
+			}
+		}
+		if(!checkMoreThanHalf(intToInteger(data), length, value)){
+			return INVALID_ARRAY;
+		}
+		return value;
+	}
 }
