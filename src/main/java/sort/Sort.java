@@ -37,7 +37,23 @@ public class Sort<T extends Comparable<T>> implements Comparator<T> , Cloneable{
 		}		
 		return array;
 	}
+	public  Integer[] intToInteger(int[] data) {
+		// TODO Auto-generated method stub
+		Integer[] array = new Integer[data.length];
+		for (int i = 0; i < array.length; i++) {
+			array[i] = data[i];
+		}
+ 		return array;
+	}
 	
+	public  int[] integerToInt(Integer[] data) {
+		// TODO Auto-generated method stub
+		int[] array = new int[data.length];
+		for (int i = 0; i < array.length; i++) {
+			array[i] = data[i];
+		}
+ 		return array;
+	}
 	@Override
 	public int compare(T object1, T object2) {
 		// TODO Auto-generated method stub

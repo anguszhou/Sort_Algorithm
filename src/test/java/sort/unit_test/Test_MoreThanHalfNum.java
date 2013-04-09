@@ -2,6 +2,8 @@ package sort.unit_test;
 
 import static org.junit.Assert.assertEquals;
 
+import interview_questions.MoreThanHalfNum_29;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
@@ -14,7 +16,6 @@ import javax.xml.datatype.DatatypeFactory;
 
 import org.junit.Test;
 
-import face_questions.MoreThanHalfNum;
 
 
 public class Test_MoreThanHalfNum {
@@ -73,7 +74,7 @@ public class Test_MoreThanHalfNum {
 	@Test
 	public void test_MoreThanHalfNum() {
 		int[] data = createRandomArray(num_scope, size_scope);
-		MoreThanHalfNum mm = new MoreThanHalfNum();
+		MoreThanHalfNum_29 mm = new MoreThanHalfNum_29();
 		int result = mm.moreThanHalfNum(data , data.length);
 		System.out.println("test MoreThanHalfNum :");
 		for (int i = 0; i < data.length; i++) {
@@ -87,7 +88,7 @@ public class Test_MoreThanHalfNum {
 	@Test
 	public void test_MoreThanHalfNum2() {
 		int[] data = createRandomArray(num_scope, size_scope);
-		MoreThanHalfNum mm = new MoreThanHalfNum();
+		MoreThanHalfNum_29 mm = new MoreThanHalfNum_29();
 		int result = mm.moreThanHalfNum2(data , data.length);
 		System.out.println("test MoreThanHalfNum2 :");
 		for (int i = 0; i < data.length; i++) {

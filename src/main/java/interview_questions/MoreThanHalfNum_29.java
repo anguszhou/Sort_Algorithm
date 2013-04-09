@@ -1,9 +1,9 @@
-package face_questions;
+package interview_questions;
 
 import sort.Sort;
 import sort.swap.QuickSort;
 
-public class MoreThanHalfNum{
+public class MoreThanHalfNum_29{
 
 	/**
 	 * Find the number whose frequency of occurrence is more
@@ -11,6 +11,7 @@ public class MoreThanHalfNum{
 	 * 
 	 */
 	private static int  INVALID_ARRAY = -99999;
+	QuickSort<Integer> s = new QuickSort<Integer>();
 	
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
@@ -23,11 +24,12 @@ public class MoreThanHalfNum{
 		if(checkInvalidArray(data, length)){
 			return INVALID_ARRAY;
 		}
-		Integer[] array  = intToInteger(data);
+		
+		Integer[] array  = s.intToInteger(data);
 		
 		int middel = length >>1;
 		int start = 0 , end = length - 1 ;
-		QuickSort<Integer> s = new QuickSort<Integer>();
+		
 		int index = s.partition(array, length, start, end);
 		
 		while(index != middel){
@@ -61,15 +63,6 @@ public class MoreThanHalfNum{
 			return true;
 	}
 
-	private Integer[] intToInteger(int[] data) {
-		// TODO Auto-generated method stub
-		Integer[] array = new Integer[data.length];
-		for (int i = 0; i < array.length; i++) {
-			array[i] = data[i];
-		}
- 		return array;
-	}
-
 	private boolean checkInvalidArray(int[] data, int length) {
 		// TODO Auto-generated method stub
 		if(data == null || length <= 0 )
@@ -97,7 +90,7 @@ public class MoreThanHalfNum{
 				times--;
 			}
 		}
-		if(!checkMoreThanHalf(intToInteger(data), length, value)){
+		if(!checkMoreThanHalf(s.intToInteger(data), length, value)){
 			return INVALID_ARRAY;
 		}
 		return value;
