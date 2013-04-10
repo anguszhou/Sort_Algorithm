@@ -313,7 +313,24 @@ public class BinarySearchTree {
 		}
 		stack.clear();
 		TreeNode pNode = node;
+		TreeNode preNode = null;
 		stack.push(pNode);
-		
+		while(!stack.empty()){
+			TreeNode tmp = stack.peek();
+			if( (tmp.leftChild == null && tmp.rightChild == null)
+				 || ( preNode != null && (tmp.leftChild == preNode || tmp.rightChild == preNode) ) 
+			   ){
+				System.out.println(tmp.key);
+				stack.pop();
+				preNode = tmp;
+			}else{
+				if(pNode.rightChild != null){
+					stack.push(pNode.rightChild);
+				}
+				if(pNode.leftChild != null){
+					stack.push(pNode.leftChild);
+				}
+			}			
+		}
 	}
 }
