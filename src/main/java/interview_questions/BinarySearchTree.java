@@ -1,12 +1,20 @@
 package interview_questions;
 
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
+import java.util.Queue;
+import java.util.Stack;
 
 public class BinarySearchTree {
 	
 	private TreeNode root = null;
 	private List<TreeNode> nodelist = new ArrayList<TreeNode>();
+	
+	//use for breadth search
+	private static Queue<TreeNode> queue = new LinkedList<TreeNode>();
+	//use for width search with iterator method
+	private static Stack<TreeNode> stack = new Stack<TreeNode>();
 	
 	private class TreeNode{
 		private int key;
@@ -14,13 +22,12 @@ public class BinarySearchTree {
 		private TreeNode rightChild;
 		private TreeNode parent;
 		
-		public TreeNode(int key, TreeNode leftChild, TreeNode rightChild,
-				TreeNode parent) {
+		public TreeNode(int key) {
 			super();
 			this.key = key;
-			this.leftChild = leftChild;
-			this.rightChild = rightChild;
-			this.parent = parent;
+			this.leftChild = null;
+			this.rightChild = null;
+			this.parent = null;
 		}
 		
 		public int getKey(){
@@ -224,5 +231,89 @@ public class BinarySearchTree {
 			deleteNode(successorNode);
 			node.key = successorNode.key;
 		}
+	}
+	
+	public void breadthSearch(TreeNode node){
+		if(node == null){
+			throw new IndexOutOfBoundsException("empty input tree.");
+		}
+		queue.clear();
+		TreeNode pNode = node;
+		queue.add(pNode);
+		while( (pNode = queue.poll()) != null){
+			System.out.println(pNode.toString());
+			if(pNode.leftChild != null){
+				queue.add(pNode.leftChild);
+			}
+			if(pNode.rightChild != null){
+				queue.add(pNode.rightChild);
+			}
+		}
+	}
+	
+	public void preOrderWithStack1(TreeNode node){
+		if(node == null){
+			throw new IndexOutOfBoundsException("empty input tree.");
+		}
+		stack.clear();
+		TreeNode pNode = node;
+		stack.push(pNode);
+		while(!stack.empty()){
+			TreeNode tmp = stack.pop();
+			System.out.println(tmp.key);
+			if(tmp.rightChild != null){
+				stack.push(tmp.rightChild);
+			}
+			if(tmp.leftChild != null){
+				stack.push(tmp.leftChild);
+			}
+		}
+	}
+	public void preOrderWithStack2(TreeNode node){
+		if(node == null){
+			throw new IndexOutOfBoundsException("empty input tree.");
+		}
+		stack.clear();
+		TreeNode pNode = node;
+		stack.push(pNode);
+		while(pNode != null || !stack.empty()){
+			while(pNode != null){
+				System.out.println(pNode.key);
+				stack.push(pNode);	
+				pNode = pNode.leftChild;					
+			}
+			if(!stack.empty()){
+				pNode = stack.pop();
+				pNode = pNode.rightChild;
+			}
+		}
+	}
+	public void inOrderWithStack1(TreeNode node){
+		if(node == null){
+			throw new IndexOutOfBoundsException("empty input tree.");
+		}
+		stack.clear();
+		TreeNode pNode = node;
+		stack.push(pNode);
+		while(pNode != null || !stack.empty()){
+			while(pNode != null){
+				stack.push(pNode);
+				pNode = pNode.leftChild;
+			}
+			if(!stack.empty()){
+				pNode = stack.pop();
+				System.out.println(pNode.key);
+				pNode = pNode.rightChild;
+			}
+		}
+	}
+	public void postOrderWithStack1(TreeNode node){
+		if(node == null){
+			throw new IndexOutOfBoundsException("empty input tree.");
+		}
+		stack.clear();
+		TreeNode pNode = node;
+		stack.push(pNode);
+		
 	}
 }
