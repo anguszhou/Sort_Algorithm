@@ -29,6 +29,41 @@ public class QuickSort<T extends Comparable<T>> extends Sort<T> {
 			quickSort(data, length, index+1, end);
 		}
 	}
+	
+	public void quickSortInt(int data[] , int length , int start , int end){
+		if(length <= 1){
+			return;
+		}
+		int index = partitionInt(data , length , start , end);
+		if(index > start){
+			quickSortInt(data, length,start , index-1);
+		}
+		if(index < end){
+			quickSortInt(data, length, index+1, end);
+		}
+	}
+	public int partitionInt(int[] data, int length, int start, int end) {
+		// TODO Auto-generated method stub
+		if(data == null || length <=0 || start < 0 || end >= length){
+			throw new IndexOutOfBoundsException("argument error!");
+		}
+		Random r = new Random();
+		//nextInt(0,n+1) create an int in [0, n+1) == [0, n];
+		int index = r.nextInt(end-start+1)+start;
+		swapInt(data , index , end);
+		
+		int small = start;
+		for(int i = start ; i <= end ; i++){
+			if(data[i] < data[end]){
+				if( small != i){
+					swapInt(data, small , i);
+				}
+				small++;
+			}
+		}
+		swapInt(data , small , end);		
+		return small;
+	}
 	/**
 	 * choose one index of array and return it .
 	 * swap all smaller than array[index] to left of array 

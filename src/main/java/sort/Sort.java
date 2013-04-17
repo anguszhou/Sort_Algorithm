@@ -20,6 +20,19 @@ public class Sort<T extends Comparable<T>> implements Comparator<T> , Cloneable{
 		data[to] = tmp;
 	}
 	
+	public void swapInt(int[] data , int from , int to){
+		if(from < 0 || from >= data.length || to < 0 || to > data.length){
+			System.out.println("Swap Error!");
+			throw new IndexOutOfBoundsException("Swap Error!");
+		}
+		if(from == to){
+			return;
+		}
+		int tmp = data[from];
+		data[from] = data[to];
+		data[to] = tmp;
+	}
+	
 	public Double[] getDoubleRandArray(int size , int scope){
 		Double [] array = new Double[size];
 		Random r = new Random();
