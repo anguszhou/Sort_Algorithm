@@ -27,7 +27,7 @@ public class RadixSort extends Sort {
 	
 	class Node{
 		List<Integer> list ;
-		public void Node(){
+		public  Node(){
 			this.list = new ArrayList<Integer>();
 		}
 	}
@@ -40,12 +40,11 @@ public class RadixSort extends Sort {
 				max = data[i];
 			}
 		}
-		
+		Node[] bucket = new Node[10];
+		for (int i = 0; i < bucket.length; i++) {
+			bucket[i] = new Node();
+		}
 		while( max/radix > 0 ){
-			Node[] bucket = new Node[10];
-			for (int i = 0; i < bucket.length; i++) {
-				bucket[i] = new Node();
-			}
 			for (int i = 0; i < data.length; i++) {
 				bucket[ (data[i] / radix)%10 ].list.add(data[i]);
 			}
@@ -54,6 +53,7 @@ public class RadixSort extends Sort {
 				for (int j = 0; j < bucket[i].list.size(); j++) {
 					data[pos++] = bucket[i].list.get(j);
 				}
+				bucket[i].list.clear();
 			}
 			radix *= 10;
 		}
