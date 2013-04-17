@@ -18,7 +18,7 @@ public class BubbleSort<T extends Comparable<T>> extends Sort<T> {
 		}
 		System.out.println();
 		System.out.println("after sort:");
-		is.bubbleSort(data);
+		is.improveBubbleSort(data);
 		for (int i = 0; i < data.length; i++) {
 			System.out.print(data[i]+" , ");
 		}
@@ -34,6 +34,24 @@ public class BubbleSort<T extends Comparable<T>> extends Sort<T> {
 					int tmp = data[j];
 					data[j] = data[j-1];
 					data[j-1] = tmp;
+				}
+			}
+		}
+	}
+	
+	public void improveBubbleSort(int[] data){
+		if(data == null){
+			throw new NullPointerException("Input array is null.");
+		}
+		boolean flag = true;
+		for (int i = 0; i < data.length && flag; i++) {
+			flag = false;
+			for(int j = data.length-1 ; j>i ; j--){
+				if(data[j] < data[j-1]){
+					int tmp = data[j];
+					data[j] = data[j-1];
+					data[j-1] = tmp;
+					flag = true;
 				}
 			}
 		}
