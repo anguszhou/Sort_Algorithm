@@ -16,33 +16,6 @@ public class BinarySearchTree {
 	//use for width search with iterator method
 	private static Stack<TreeNode> stack = new Stack<TreeNode>();
 	
-	private class TreeNode{
-		private int key;
-		private TreeNode leftChild;
-		private TreeNode rightChild;
-		private TreeNode parent;
-		
-		public TreeNode(int key) {
-			super();
-			this.key = key;
-			this.leftChild = null;
-			this.rightChild = null;
-			this.parent = null;
-		}
-		
-		public int getKey(){
-			return key;
-		}
-		
-		public String toString() {  
-            String leftkey = (leftChild == null ? "" : String  
-                    .valueOf(leftChild.key));  
-            String rightkey = (rightChild == null ? "" : String  
-                    .valueOf(rightChild.key));  
-            return "(" + leftkey + " , " + key + " , " + rightkey + ")";  
-        }  
-	}
-
 	public boolean isEmpty(){
 		if(root == null){
 			return true;
@@ -334,3 +307,32 @@ public class BinarySearchTree {
 		}
 	}
 }
+
+class TreeNode{
+	int key;
+	TreeNode leftChild;
+	TreeNode rightChild;
+	TreeNode parent;
+	
+	public TreeNode(int key) {
+		super();
+		this.key = key;
+		this.leftChild = null;
+		this.rightChild = null;
+		this.parent = null;
+	}
+	
+	public int getKey(){
+		return key;
+	}
+	
+	public String toString() {  
+        String leftkey = (leftChild == null ? "" : String  
+                .valueOf(leftChild.key));  
+        String rightkey = (rightChild == null ? "" : String  
+                .valueOf(rightChild.key));  
+        return "(" + leftkey + " , " + key + " , " + rightkey + ")";  
+    }  
+}
+
+
