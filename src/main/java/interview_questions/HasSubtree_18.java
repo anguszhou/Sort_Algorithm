@@ -16,8 +16,6 @@ public class HasSubtree_18 {
 		for (int i = 0; i < size; i++) {
 			TreeNode tn = new TreeNode(r.nextInt(100));
 			sbt.insertNode(tn);
-			sbt.printBinaryTree(sbt.getRoot());
-			System.out.println();
 		}
 		System.out.println();
 		System.out.println();

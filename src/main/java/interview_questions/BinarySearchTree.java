@@ -348,6 +348,7 @@ public class BinarySearchTree {
 					queue1.add(c.rightChild);
 				}
 			}
+			System.out.println();
 		}
 	}
 }
