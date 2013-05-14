@@ -1,5 +1,7 @@
 package interview_questions;
 
+import java.util.Random;
+
 public class MergerLinkList_17 extends LinkList {
 
 	/**
@@ -7,7 +9,28 @@ public class MergerLinkList_17 extends LinkList {
 	 */
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-
+		LinkList ll = new LinkList();
+		LinkList ll2 = new LinkList();
+		Random r = new Random();
+		int size = r.nextInt(10);
+		for (int i = 0; i < size; i++) {
+			Node n = new Node(i*2);
+			Node n2 = new Node(i*2+1);
+			ll.addNode(n);
+			ll2.addNode(n2);
+		}
+		
+		System.out.println("LinkList 1 : ");
+		ll.printNodeList(ll.root);
+		System.out.println();
+		System.out.println("LinkList 2 : ");
+		ll2.printNodeList(ll2.root);
+		
+		System.out.println();
+		MergerLinkList_17 ml = new MergerLinkList_17();
+		System.out.println("Merged LinkList : ");
+		ll2.printNodeList(ml.mergeList(ll.root, ll2.root));
+		
 	}
 	
 	public Node mergeList(Node head1, Node head2){

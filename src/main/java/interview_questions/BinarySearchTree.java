@@ -30,6 +30,10 @@ public class BinarySearchTree {
 		}
 	}
 	
+	public TreeNode getRoot(){
+		return root;
+	}
+	
 	public TreeNode searchByIterate(int key){
 		if(root == null){
 			return null;
@@ -304,6 +308,46 @@ public class BinarySearchTree {
 					stack.push(pNode.leftChild);
 				}
 			}			
+		}
+	}
+	
+	public void printBinaryTree(TreeNode node){
+		Queue<TreeNode> queue1 = new LinkedList<TreeNode>();
+		Queue<TreeNode> queue2 = new LinkedList<TreeNode>();
+		
+		if(node == null){
+			return ;
+		}
+		
+		queue1.add(node);
+		while( !queue1.isEmpty() || !queue2.isEmpty()){
+			while( !queue1.isEmpty() ){
+				//poll : get and remove head of queue;
+				//peek : get and do not remvoe head of queue;
+				TreeNode c = queue1.poll();
+				System.out.print(c.key+",");
+				if(c.leftChild != null){
+					queue2.add(c.leftChild);
+				}
+				if(c.rightChild != null){
+					queue2.add(c.rightChild);
+				}
+			}
+			
+			System.out.println();
+			
+			while( !queue2.isEmpty() ){
+				//poll : get and remove head of queue;
+				//peek : get and do not remvoe head of queue;
+				TreeNode c = queue2.poll();
+				System.out.print(c.key+",");
+				if(c.leftChild != null){
+					queue1.add(c.leftChild);
+				}
+				if(c.rightChild != null){
+					queue1.add(c.rightChild);
+				}
+			}
 		}
 	}
 }

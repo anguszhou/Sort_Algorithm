@@ -1,6 +1,6 @@
 package sort.unit_test;
 
-import sort.swap.MergeSort;
+import sort.merge.MergeSort;
 
 import org.junit.Test;
 
