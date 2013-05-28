@@ -8,6 +8,20 @@ import java.util.Stack;
 
 public class BinarySearchTree {
 	
+	public enum ColorFlag {
+		All(0), ResourceName(1), IncludeGroup(2), ExcludeGroup(3), ClusterWide(
+				4), Master(5), DeviceGroup(6),BuildIn(7);
+		private int code;
+
+		private ColorFlag(int c) {
+			code = c;
+		}
+
+		public int getCode() {
+			return code;
+		}
+	}
+	
 	private TreeNode root = null;
 	private List<TreeNode> nodelist = new ArrayList<TreeNode>();
 	
