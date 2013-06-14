@@ -1,4 +1,4 @@
-package sort.swap;
+package sort.merge;
 
 import sort.Sort;
 

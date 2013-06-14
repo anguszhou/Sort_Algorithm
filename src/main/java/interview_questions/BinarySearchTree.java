@@ -8,6 +8,20 @@ import java.util.Stack;
 
 public class BinarySearchTree {
 	
+	public enum ColorFlag {
+		All(0), ResourceName(1), IncludeGroup(2), ExcludeGroup(3), ClusterWide(
+				4), Master(5), DeviceGroup(6),BuildIn(7);
+		private int code;
+
+		private ColorFlag(int c) {
+			code = c;
+		}
+
+		public int getCode() {
+			return code;
+		}
+	}
+	
 	private TreeNode root = null;
 	private List<TreeNode> nodelist = new ArrayList<TreeNode>();
 	
@@ -16,33 +30,6 @@ public class BinarySearchTree {
 	//use for width search with iterator method
 	private static Stack<TreeNode> stack = new Stack<TreeNode>();
 	
-	private class TreeNode{
-		private int key;
-		private TreeNode leftChild;
-		private TreeNode rightChild;
-		private TreeNode parent;
-		
-		public TreeNode(int key) {
-			super();
-			this.key = key;
-			this.leftChild = null;
-			this.rightChild = null;
-			this.parent = null;
-		}
-		
-		public int getKey(){
-			return key;
-		}
-		
-		public String toString() {  
-            String leftkey = (leftChild == null ? "" : String  
-                    .valueOf(leftChild.key));  
-            String rightkey = (rightChild == null ? "" : String  
-                    .valueOf(rightChild.key));  
-            return "(" + leftkey + " , " + key + " , " + rightkey + ")";  
-        }  
-	}
-
 	public boolean isEmpty(){
 		if(root == null){
 			return true;
@@ -55,6 +42,10 @@ public class BinarySearchTree {
 		if(isEmpty()){
 			throw new Exception("The tree is empty.");
 		}
+	}
+	
+	public TreeNode getRoot(){
+		return root;
 	}
 	
 	public TreeNode searchByIterate(int key){
@@ -333,4 +324,74 @@ public class BinarySearchTree {
 			}			
 		}
 	}
+	
+	public void printBinaryTree(TreeNode node){
+		Queue<TreeNode> queue1 = new LinkedList<TreeNode>();
+		Queue<TreeNode> queue2 = new LinkedList<TreeNode>();
+		
+		if(node == null){
+			return ;
+		}
+		
+		queue1.add(node);
+		while( !queue1.isEmpty() || !queue2.isEmpty()){
+			while( !queue1.isEmpty() ){
+				//poll : get and remove head of queue;
+				//peek : get and do not remvoe head of queue;
+				TreeNode c = queue1.poll();
+				System.out.print(c.key+",");
+				if(c.leftChild != null){
+					queue2.add(c.leftChild);
+				}
+				if(c.rightChild != null){
+					queue2.add(c.rightChild);
+				}
+			}
+			
+			System.out.println();
+			
+			while( !queue2.isEmpty() ){
+				//poll : get and remove head of queue;
+				//peek : get and do not remvoe head of queue;
+				TreeNode c = queue2.poll();
+				System.out.print(c.key+",");
+				if(c.leftChild != null){
+					queue1.add(c.leftChild);
+				}
+				if(c.rightChild != null){
+					queue1.add(c.rightChild);
+				}
+			}
+			System.out.println();
+		}
+	}
 }
+
+class TreeNode{
+	int key;
+	TreeNode leftChild;
+	TreeNode rightChild;
+	TreeNode parent;
+	
+	public TreeNode(int key) {
+		super();
+		this.key = key;
+		this.leftChild = null;
+		this.rightChild = null;
+		this.parent = null;
+	}
+	
+	public int getKey(){
+		return key;
+	}
+	
+	public String toString() {  
+        String leftkey = (leftChild == null ? "" : String  
+                .valueOf(leftChild.key));  
+        String rightkey = (rightChild == null ? "" : String  
+                .valueOf(rightChild.key));  
+        return "(" + leftkey + " , " + key + " , " + rightkey + ")";  
+    }  
+}
+
+
