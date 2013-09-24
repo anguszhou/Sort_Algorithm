@@ -5,7 +5,8 @@ import sort.Sort;
 public class InsertSort <T extends Comparable<T>> extends Sort<T>{
 
 	/**
-	 * @param args
+	 * avg：O(n^2) worst:O(n^2)
+	 * stable
 	 */
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
@@ -15,6 +16,7 @@ public class InsertSort <T extends Comparable<T>> extends Sort<T>{
 		for (int i = 0; i < data.length; i++) {
 			System.out.print(data[i]+" , ");
 		}
+		int a,b;a=b=100;
 		System.out.println();
 		System.out.println("after sort:");
 		is.insertSortWithPiquet(data);

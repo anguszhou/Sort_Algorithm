@@ -3,7 +3,10 @@ package sort.merge;
 import sort.Sort;
 
 public class MergeSort<T extends Comparable<T>> extends Sort<T> {
-
+	/**
+	 * avg：O(nlog n) worst:O(nlog n)
+	 * stable
+	 */
 	public void mergeSort(int[] data, int begin, int end){
 		if(data== null || begin> end){
 			throw new NullPointerException("Error input.");

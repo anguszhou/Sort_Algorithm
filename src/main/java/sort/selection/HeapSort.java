@@ -4,7 +4,10 @@ import sort.Sort;
 import sort.swap.BubbleSort;
 
 public class HeapSort<T extends Comparable<T>> extends Sort<T> {
-
+	/**
+	 * avg：O(nlog n) worst:O(nlog n)
+	 * not-stable
+	 */
 	
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub

@@ -6,7 +6,10 @@ import java.util.Random;
 import sort.Sort;
 
 public class QuickSort<T extends Comparable<T>> extends Sort<T> {
-
+	/**
+	 * avg：O(n^2) worst:O(n^2)
+	 * not-stable
+	 */
 	
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub

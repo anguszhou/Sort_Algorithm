@@ -6,7 +6,8 @@ import sort.insert.InsertSort;
 public class SelectSort<T extends Comparable<T>> extends Sort<T> {
 
 	/**
-	 * @param args
+	 * avg：O(n^2) worst:O(n^2)
+	 * not-stable
 	 */
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub

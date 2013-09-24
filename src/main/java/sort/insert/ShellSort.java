@@ -5,7 +5,8 @@ import sort.Sort;
 public class ShellSort<T extends Comparable<T>> extends Sort<T> {
 
 	/**
-	 * @param args
+	 * avg：O(nlog n) ~ O(n^2) [ O(n^1.3)]
+	 * stable
 	 */
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
